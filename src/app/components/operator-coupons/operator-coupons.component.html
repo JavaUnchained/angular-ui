@@ -1,0 +1,37 @@
+<div>
+  <br><br>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="blue">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Address</th>
+        <th scope="col">Status</th>
+        <th scope="col">Name</th>
+        <th scope="col">Shipping date</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="coupons.length; else noCoupons;">
+      <tr *ngFor="let coupon of coupons">
+        <td lang="ru">{{coupon.id}}</td>
+        <td lang="ru">{{coupon.address}}</td>
+        <td lang="ru">{{coupon.status}}</td>
+        <td lang="ru">{{coupon.name}}</td>
+        <td lang="ru">{{coupon.shipping}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noCoupons>
+  <tbody>
+  <tr>
+    <td></td>
+    <td></td>
+    <td lang="ru">No</td>
+    <td lang="ru">Coupons</td>
+    <td lang="ru">available</td>
+  </tr>
+  </tbody>
+</ng-template>

@@ -1,7 +1,8 @@
-export class OrderRequestDTO {
-
-  public rationId: number;
-  public address: string;
-  public shippingDate: Date;
-  public subscribed: number;
+export class OrderResponseDTO {
+  public date: string;
+  public fullAddress: string;
+  public id: bigint;
+  public rationName: string;
+  public status: string;
+  public subscribed: string;
 }

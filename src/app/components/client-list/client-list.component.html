@@ -1,0 +1,40 @@
+<div>
+  <br><br>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="blue">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ration Name</th>
+        <th scope="col">Shipping date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Subscribed</th>
+        <th scope="col">Address</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="orders.length; else noOrders;">
+      <tr *ngFor="let order of orders">
+        <td lang="ru">{{order.id}}</td>
+        <td lang="ru">{{order.rationName}}</td>
+        <td lang="ru">{{order.date}}</td>
+        <td lang="ru">{{order.status}}</td>
+        <td lang="ru">{{order.subscribed}}</td>
+        <td lang="ru">{{order.fullAddress}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noOrders>
+  <tbody>
+  <tr>
+    <td></td>
+    <td></td>
+    <td lang="ru">No</td>
+    <td lang="ru">ration</td>
+    <td lang="ru">available</td>
+    <td></td>
+  </tr>
+  </tbody>
+</ng-template>

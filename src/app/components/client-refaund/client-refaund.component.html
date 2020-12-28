@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body" style="width: max-content">
+    <form (ngSubmit)="onSubmit()" #rationForm="ngForm">
+      <div class="form-group">
+        <label for="order_id">Order id</label>
+        <input type="number" [(ngModel)]="id"
+               class="form-control"
+               id="order_id"
+               name="order_id"
+               placeholder="Enter a order id"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Ration number is required</div>
+      <div class="form-group">
+        <label for="message">What's wrong?</label>
+        <input type="text"
+               class="form-control"
+               id="message"
+               name="message"
+               placeholder="Why are you want make refund? ">
+      </div>
+      <button type="submit" [disabled]="!rationForm.form.valid"
+              class="btn button-blue">Submit</button>
+    </form>
+  </div>
+</div>

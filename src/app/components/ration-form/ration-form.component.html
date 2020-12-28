@@ -1,0 +1,38 @@
+<div class="card my-5">
+  <div class="card-body" style="width: max-content">
+    <form (ngSubmit)="onSubmit()" #rationForm="ngForm">
+      <div class="form-group">
+        <label for="ration_name">Ration name</label>
+        <input type="text" [(ngModel)]="ration.name"
+               class="form-control"
+               id="ration_name"
+               name="ration_name"
+               placeholder="Enter the ration name"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Ration name is required</div>
+      <div class="form-group">
+        <label for="description">Ration description</label>
+        <input type="text" [(ngModel)]="ration.description"
+               class="form-control"
+               id="description"
+               name="description"
+               placeholder="Enter a description"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Ration description is required</div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number" [(ngModel)]="ration.price"
+               class="form-control"
+               id="price"
+               name="ration_price"
+               placeholder="Enter a price"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Price of the ration is required</div>
+      <button type="submit" [disabled]="!rationForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

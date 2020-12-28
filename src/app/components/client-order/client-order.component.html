@@ -1,0 +1,93 @@
+<div class="card my-5">
+  <div class="card-body" style="width: max-content">
+    <form (ngSubmit)="onSubmit()" #rationForm="ngForm">
+<!--      <div class="form-group">-->
+<!--        <label for="order_rationId">Ration name</label>-->
+<!--          <select class="custom-select" id="order_rationId">-->
+<!--            <option value="">Choose ration</option>-->
+<!--            <option class="mat-option" *ngFor="let ration of rations" lang="ru" [ngValue]="order.rationId">-->
+<!--              {{ration.id}}</option>-->
+<!--          </select>-->
+<!--      </div>-->
+      <div class="form-group">
+        <label for="ration_id">Ration id</label>
+        <input type="number" [(ngModel)]="order.rationId"
+               class="form-control"
+               id="ration_id"
+               name="ration_id"
+               placeholder="Enter a ration id"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Ration number is required</div>
+      <div class="form-group">
+        <label for="order_address">Address</label>
+        <input type="text" [(ngModel)]="order.address"
+               class="form-control"
+               id="order_address"
+               name="order_address"
+               placeholder="Enter a address"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Address is required</div>
+      <div class="form-group">
+        <label for="shipping">Shipping Date</label>
+        <input type="date" [(ngModel)]="order.shippingDate"
+               class="form-control"
+               id="shipping"
+               name="shipping"
+               placeholder="Enter shipping date"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Date is required</div>
+        <div class="form-group">
+          <label for="subscribe">Subscribe</label>
+          <input type="number" [(ngModel)]="order.subscribed"
+                 class="form-control"
+                 id="subscribe"
+                 name="subscribe"
+                 placeholder="Enter subscribe times"
+                 required #name="ngModel">
+        </div>
+        <div [hidden]="!name.pristine" class="alert alert-danger">Subscribed is required</div>
+      <button type="submit" [disabled]="!rationForm.form.valid"
+              class="btn button-blue">Submit</button>
+    </form>
+  </div>
+</div>
+<div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="blue">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Ration Name</th>
+        <th scope="col">Ration Description</th>
+        <th scope="col">Price</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="rations.length; else noRations;">
+      <tr *ngFor="let ration of rations">
+        <td lang="ru">{{ration.id}}</td>
+        <td lang="ru">{{ration.name}}</td>
+        <td lang="ru">{{ration.description}}</td>
+        <td>{{ration.price}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #noRations>
+  <tbody>
+  <tr>
+    <td lang="ru">No</td>
+    <td lang="ru">rations</td>
+    <td lang="ru">available</td>
+    <td>yet</td>
+    <td>!</td>
+  </tr>
+  </tbody>
+</ng-template>
+
+
+<ng-template #noRations><p>no rations yet</p></ng-template>

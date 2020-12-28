@@ -1,0 +1,23 @@
+ng add @angular/material
+ng test //run test
+ng build --prod   // build for production
+
+https://material.angular.io
+https://angular.io/guide/animations
+
+https://augury.rangle.io  // debug
+https://www.meetup.com/find/?keywords=angular meetups
+
+https://angular.io/tutorial
+https://angular.io/cli
+
+
+
+Types script
+
+https://www.typescriptlang.org/docs/handbook/intro.html
+
+
+
+
+http://localhost:8080/swagger-ui.html#/operator-controller

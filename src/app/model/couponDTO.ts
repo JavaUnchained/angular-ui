@@ -1,10 +1,7 @@
 export class CouponDTO {
-  constructor(
-    public id: bigint,
-    public name: string,
-    public couponStatusEnum: string,
-    public address: string,
-    public shippingDate: string,
-  ) {
-  }
+    public id: bigint;
+    public address: string;
+    public status: string;
+    public name: string;
+    public shipping: string;
 }

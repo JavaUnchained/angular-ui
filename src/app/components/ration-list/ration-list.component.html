@@ -1,0 +1,49 @@
+<div>
+  <br><br>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="blue">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ration Name</th>
+        <th scope="col">Ration Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Select</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="rations.length; else noRations;">
+        <tr *ngFor="let ration of rations">
+          <td lang="ru">{{ration.id}}</td>
+          <td lang="ru">{{ration.name}}</td>
+          <td lang="ru">{{ration.description}}</td>
+          <td>{{ration.price}}</td>
+          <td><input type="checkbox" name="needDelete" id="{{ration.id}}}" (click)="deleteComponent(ration.id)"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row" *ngIf="ids.length">
+      <div class="col-md-12">
+        <div>
+          <div class="card-body">
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item">
+                <a  class="btn button-blue" (click)="sendDeleteIds()" style="color: #ffffff">Delete Ration</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noRations>
+  <tbody>
+  <tr>
+    <td lang="ru">No</td>
+    <td lang="ru">rations</td>
+    <td lang="ru">available</td>
+    <td>yet</td>
+    <td>!</td>
+  </tr>
+  </tbody>
+</ng-template>
